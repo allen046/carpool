@@ -116,10 +116,10 @@ if(isset($_POST["submit"])!="")
   
   
 $x=mysql_query("SELECT * FROM signup WHERE email='$email' AND pass='$pass'");
-if($rw=mysql_num_rows($x))
+$rw=mysql_num_rows($x);
+	if($rw>0)
   {
-  	$_SESSION['email']=$rw;
-  	$_SESSION['email']=$email;
+  	$_SESSION['email']==$email;
      echo " logged in successfully";
      header("location:pageshare.php");
 
